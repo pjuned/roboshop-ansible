@@ -25,7 +25,7 @@
 
     - name: Unarchive a file that is already on the remote machine
       ansible.builtin.unarchive:
-        src: /web.zip
+        src: /tmp//web.zip
         dest: /usr/share/nginx/html
         remote_src: yes
 
