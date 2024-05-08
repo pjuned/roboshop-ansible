@@ -1,0 +1,30 @@
+- name: install mysql components
+  hosts: mysql
+  become: yes
+  tasks:
+    - name: disable default mysql
+      ansible.builtin.command: dnf module disable mysql -y
+
+    - name: setup mysql 5.7 repo
+      ansible.builtin.copy:
+        src: mysql.repo
+        dest: /etc/yum.repos.d/mysql.repo
+
+    - name: install mysql server
+      ansible.builtin.package:
+        name: mysql-community-server 
+        state: present
+
+    # To set the password we need to start the mysql service
+
+    - name: start & enable mysql
+      ansible.builtin.service:
+        name: mysqld
+        state: restarted
+        enabled: yes
+
+    - name: setu Root password
+      ansible.builtin.command: mysql_secure_installation --set-root-pass RoboShop@1
+
+    
+
