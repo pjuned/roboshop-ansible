@@ -18,7 +18,7 @@
         state: present
 
     - name: download Application in the dir
-      ansible.bulitin.get_url:
+      ansible.builtin.get_url:
         url: https://roboshop-builds.s3.amazonaws.com/web.zip
         dest: /tmp
 
