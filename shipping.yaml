@@ -14,7 +14,7 @@
         name: roboshop
         
     - name: recursively delete existing dir
-      ansible.buitlin.file:
+      ansible.builtin.file:
         path: /app
         state: absent
 
