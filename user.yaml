@@ -41,7 +41,7 @@
         chdir: /app
 
     - name: copy user service
-      ansible.builtin.service;
+      ansible.builtin.service:
         src: user.service
         dest: /etc/systemd/system/user.service
 
