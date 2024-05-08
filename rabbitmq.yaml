@@ -3,7 +3,7 @@
   become: yes
   tasks:
     - name: configure yum erlang repos
-      ansible.buitin.command: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+      ansible.builtin.command: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
 
     - name: configure rabbitmq server repos
       ansible.builtin.command: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
@@ -25,4 +25,3 @@
     - name: set permissions
       ansible.builtin.command: rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
 
-      
